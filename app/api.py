@@ -4,6 +4,7 @@ import json
 
 from app.database import get_connection_pool
 from app.encoder import serialize_query
+from app.responses import JsonResponse
 
 
 def read_report(event, context):
@@ -17,4 +18,15 @@ def read_report(event, context):
             serialized_result = serialize_query(cursor=curs, result=result)
     connection_pool.putconn(conn)
 
-    return {"statusCode": 200, "body": json.dumps(serialized_result)}
+    json_response = JsonResponse(status_code=200,
+                                 headers={
+                                     "Access-Control-Allow-Origin": "*",
+                                     "Access-Control-Allow-Methods": "GET",
+                                 },
+                                 body=json.dumps(serialized_result))
+
+    return {
+        "statusCode": json_response.status_code,
+        "Headers": json_response.headers,
+        "body": json_response.body
+    }
