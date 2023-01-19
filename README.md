@@ -22,6 +22,12 @@ Start Localstack with docker-compose
 ```bash
   (cd aws-localstack && docker-compose up -d)
 ```
+Stop Localstack with docker-compose
+```bash
+  (cd aws-localstack && docker-compose down)
+```
+
+
 Install terraform local (terraform wrapper)
 ```bash
   pip install terraform-local
@@ -61,6 +67,15 @@ Activate venv and install dependencies (you are in project directory)
   poetry shell
   poetry install
 ```
+
+# Data Operations on PostgresSQL
+
+PostgreSQL Shell Access
+```bash
+docker exec -it <container_id> psql -U pythonTest pythonTest /bin/bash
+```
+
+
 
 ## Usage
 
