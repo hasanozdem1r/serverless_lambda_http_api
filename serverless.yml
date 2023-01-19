@@ -1,0 +1,31 @@
+service: sandbox-test2
+provider:
+  name: aws
+  runtime: python3.9
+  stage: ${self:custom.stage}
+  region: eu-west-1 # Ireland
+  timeout: 15 # The default is 6 seconds.
+
+functions: ${file(resources/endpoints.yml)}
+
+plugins:
+  - serverless-python-requirements # A Serverless Framework plugin to automatically bundle dependencies from requirements.txt
+  - serverless-localstack # Serverless Plugin to support running against Localstack.
+  - serverless-iam-roles-per-function # define IAM roles per function via the use of iamRoleStatements
+
+custom:
+  stage: ${opt:stage, "dev"}
+  pythonRequirements: ${file(resources/python_dependencies.yml)}
+  localstack:
+    stages:
+      - ${self:custom.stage}
+    host: http://localhost
+    edgePort: 4566
+    autostart: true
+    docker:
+      sudo: false
+  DB_NAME: 'pythonTest'
+  DB_USER: 'pythonTest'
+  DB_PASSWORD: 'pythonTest'
+  DB_HOST: 'postgresql'
+  DB_PORT: 5432
