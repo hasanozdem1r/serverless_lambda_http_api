@@ -2,7 +2,7 @@
 version: '3.3'
 
 networks:
-  pytest: 
+  pytest:
     driver: bridge
 
 services:
@@ -18,7 +18,7 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
-      
+
   database:
     container_name: postgresql
     image: postgres
