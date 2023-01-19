@@ -2,6 +2,9 @@ import json
 
 
 def serialize_query(cursor, result):
+    """
+    JSON Serializer if file type is not convenient
+    """
     if result is None:
         return None
     else:

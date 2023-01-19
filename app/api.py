@@ -12,7 +12,8 @@ def read_report(event, context):
     connection_pool = get_connection_pool()
     with connection_pool.getconn() as conn:
         with conn.cursor() as curs:
-            curs.execute("SELECT * FROM items WHERE id = %s", (report_id,))
+            curs.execute("SELECT * FROM test_hst.audit WHERE id = %s",
+                         (report_id,))
             result = curs.fetchone()
             # Serializing JSON objects which is not serializable by default json code
             serialized_result = serialize_query(cursor=curs, result=result)
