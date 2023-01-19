@@ -1,0 +1,33 @@
+---
+version: '3.3'
+
+networks:
+  pytest: 
+    driver: bridge
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+    networks:
+      - pytest
+    environment:
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      
+  database:
+    container_name: postgresql
+    image: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - pytest
+    environment:
+      POSTGRES_PASSWORD: pythonTest
+      POSTGRES_USER: pythonTest
+      POSTGRES_DB: pythonTest
+
