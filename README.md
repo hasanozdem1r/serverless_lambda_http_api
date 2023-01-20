@@ -99,7 +99,6 @@ functions:
 
 ## Acknowledgements
 Following people or resources helped me to understand and let me to apply best practices for this task
- - [Daria Chekmak](https://pl.linkedin.com/in/daria-chekmak-b026b8142)
  - [Boilerplate Python HTTP Api](https://github.com/yokharian/boilerplate-python-http-api)
  - AWS Community Day Resources
  - [Hasan Özdemir Project Template](https://github.com/hasanozdem1r/python_project_template)
