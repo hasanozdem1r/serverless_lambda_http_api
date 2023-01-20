@@ -21,7 +21,7 @@ services:
 
   database:
     container_name: postgresql
-    image: postgres
+    image: postgres:14.1-alpine
     ports:
       - "5432:5432"
     networks:
@@ -30,4 +30,7 @@ services:
       POSTGRES_PASSWORD: pythonTest
       POSTGRES_USER: pythonTest
       POSTGRES_DB: pythonTest
+    volumes:
+      # copy the sql script to create tables
+      - ./postgres_init/init_db.sql:/docker-entrypoint-initdb.d/postgres_init/init_db.sql
 
