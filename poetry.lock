@@ -312,21 +312,6 @@ files = [
 ]
 
 [[package]]
-name = "commonmark"
-version = "0.9.1"
-description = "Python parser for the CommonMark Markdown spec"
-category = "main"
-optional = false
-python-versions = "*"
-files = [
-    {file = "commonmark-0.9.1-py2.py3-none-any.whl", hash = "sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9"},
-    {file = "commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
-]
-
-[package.extras]
-test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
-
-[[package]]
 name = "cryptography"
 version = "39.0.0"
 description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
@@ -563,6 +548,43 @@ package = ["python-minifier"]
 runtime = ["Js2Py (>=0.71)", "PyJWT (>=1.7.0)", "Whoosh (>=2.7.4)", "amazon.ion (>=0.9.3)", "avro (>=1.11.0)", "aws-encryption-sdk (>=3.1.0)", "dirtyjson (==1.0.7)", "docker (==5.0.0)", "docker-registry-client (>=0.5.2)", "dulwich (>=0.19.16)", "flask (>=1.0.2)", "graphql-core (>=3.0.3)", "janus (>=0.5.0)", "jsonpatch (>=1.32)", "kafka-python", "kubernetes (==21.7.0)", "localstack[runtime] (>=1.3.1.dev)", "moto-ext[all] (>=4.0.10.post1)", "paho-mqtt (>=1.5)", "parquet (>=1.3.1)", "parse (==1.19.0)", "pg8000 (>=1.10)", "postgres (>=2.2.2)", "postgresql-proxy (>=0.1.0)", "presto-python-client (>=0.7.0)", "pyftpdlib (>=1.5.6)", "pyhive[hive] (>=0.6.1)", "pyion2json (>=0.0.2)", "pyqldb (>=3.2,<4.0)", "python-snappy (>=0.6)", "readerwriterlock (>=1.0.7)", "rsa (>=4.0)", "sql-metadata (>=2.6.0)", "srp-ext (==1.0.7.1)", "testing.common.database (>=1.1.0)", "tornado (>=6.0)", "warrant-ext (>=0.6.2)", "websockets (>=8.1)"]
 test = ["Js2Py (>=0.71)", "aiohttp", "appdirs", "aws_xray_sdk (>=2.4.2)", "azure-common (>=1.1.26)", "azure-core (>=1.9.0)", "azure-devops (>=6.0.0b4)", "azure-functions (>=1.5.0)", "azure-identity (>=1.5.0)", "azure-mgmt-core (>=1.2.2)", "azure-mgmt-storage (>=16.0.0)", "azure-mgmt-web (>=1.0.0)", "azure-servicebus (>=7.0.1)", "azure-storage-blob (>=12.3.0)", "azure-storage-queue (>=12.1.1)", "black (==22.3.0)", "coverage[toml] (>=5.0.0)", "coveralls", "flake8 (==3.9.2)", "flake8-black (==0.3.2)", "flake8-isort (==5.0.0)", "flake8-quotes (>=0.11.0)", "gremlinpython (==3.5.1)", "isort (==5.9.1)", "jws (>=0.1.3)", "localstack[test] (>=1.3.1.dev)", "msal", "msal-extensions", "msrest", "neo4j", "nest-asyncio (>=1.4.1)", "packaging (<22)", "paramiko (>=2.11.0,<2.12.0)", "portalocker", "pre-commit (==2.13.0)", "pyarrow", "pyathena", "pykafka", "pymongo", "pymssql", "pymysql", "pyproject-flake8 (==3.9.2)", "pytest (==6.2.4)", "pytest-dependency (==0.5.1)", "pytest-httpserver (>=1.0.1)", "pytest-instafail (>=0.4.2)", "pytest-rerunfailures (==10.0)", "redis (==3.3.7)", "redshift_connector", "stomp.py (==8.0.1)"]
 test-overrides = ["localstack (>=1.3.1.dev)"]
+
+[[package]]
+name = "markdown-it-py"
+version = "2.1.0"
+description = "Python port of markdown-it. Markdown parsing, done right!"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "markdown-it-py-2.1.0.tar.gz", hash = "sha256:cf7e59fed14b5ae17c0006eff14a2d9a00ed5f3a846148153899a0224e2c07da"},
+    {file = "markdown_it_py-2.1.0-py3-none-any.whl", hash = "sha256:93de681e5c021a432c63147656fe21790bc01231e0cd2da73626f1aa3ac0fe27"},
+]
+
+[package.dependencies]
+mdurl = ">=0.1,<1.0"
+
+[package.extras]
+benchmarking = ["psutil", "pytest", "pytest-benchmark (>=3.2,<4.0)"]
+code-style = ["pre-commit (==2.6)"]
+compare = ["commonmark (>=0.9.1,<0.10.0)", "markdown (>=3.3.6,<3.4.0)", "mistletoe (>=0.8.1,<0.9.0)", "mistune (>=2.0.2,<2.1.0)", "panflute (>=2.1.3,<2.2.0)"]
+linkify = ["linkify-it-py (>=1.0,<2.0)"]
+plugins = ["mdit-py-plugins"]
+profiling = ["gprof2dot"]
+rtd = ["attrs", "myst-parser", "pyyaml", "sphinx", "sphinx-copybutton", "sphinx-design", "sphinx_book_theme"]
+testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions"]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+description = "Markdown URL utilities"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
+    {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
+]
 
 [[package]]
 name = "packaging"
@@ -944,18 +966,18 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "rich"
-version = "13.1.0"
+version = "13.2.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "main"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "rich-13.1.0-py3-none-any.whl", hash = "sha256:f846bff22a43e8508aebf3f0f2410ce1c6f4cde429098bd58d91fde038c57299"},
-    {file = "rich-13.1.0.tar.gz", hash = "sha256:81c73a30b144bbcdedc13f4ea0b6ffd7fdc3b0d3cc259a9402309c8e4aee1964"},
+    {file = "rich-13.2.0-py3-none-any.whl", hash = "sha256:7c963f0d03819221e9ac561e1bc866e3f95a02248c1234daa48954e6d381c003"},
+    {file = "rich-13.2.0.tar.gz", hash = "sha256:f1a00cdd3eebf999a15d85ec498bfe0b1a77efe9b34f645768a54132ef444ac5"},
 ]
 
 [package.dependencies]
-commonmark = ">=0.9.0,<0.10.0"
+markdown-it-py = ">=2.1.0,<3.0.0"
 pygments = ">=2.6.0,<3.0.0"
 
 [package.extras]
@@ -975,6 +997,32 @@ files = [
 
 [package.dependencies]
 pyasn1 = ">=0.1.3"
+
+[[package]]
+name = "ruff"
+version = "0.0.226"
+description = "An extremely fast Python linter, written in Rust."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "ruff-0.0.226-py3-none-macosx_10_7_x86_64.whl", hash = "sha256:199afcebc851350f4ab87987c83b1bf489510210700742e15fb129b4750d889a"},
+    {file = "ruff-0.0.226-py3-none-macosx_10_9_x86_64.macosx_11_0_arm64.macosx_10_9_universal2.whl", hash = "sha256:1baa384e94c42de9750b6e381807ca63c7572a3d283c98344a8347b93a17045d"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:80856915feed3786f16cd29a6af32f3e1527b5b16931d92bac01c12400ecc4fe"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ebb106e359bd4a686d370ee5726fca7e92ecdfee61611a50e3f4214751829330"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:22bb40dc76cff2460efd7d1e81f0604d8905a4e442e45ea7e95ca994a258b84a"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:de5089659d977901d7798e4bc67533c208e2be1360799d67df9f55c1e2ce5336"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:c7bb7f88d6aa0b6525603069949d21faeacd775b83e0d6303bc9dafe133275f7"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:32194ee22fc24c54ea5c9d05eaf3991bb6bc1f1ecbfb9372caba3e465b6e0834"},
+    {file = "ruff-0.0.226-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:04130c170e2da762b5510ac73683ed80701d7b5efb8124228b374eba78eb465f"},
+    {file = "ruff-0.0.226-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:e5c364352ff8fc5d01d0416bed2e38f1b094d0efcff3d4fd18f8825aa69c8d49"},
+    {file = "ruff-0.0.226-py3-none-musllinux_1_2_armv7l.whl", hash = "sha256:f729a4f68f2f50538b03d4ad6ad753a895ce9256fa8c262bac374a85500ca82f"},
+    {file = "ruff-0.0.226-py3-none-musllinux_1_2_i686.whl", hash = "sha256:275b3555662554253b319984380f70e3aa1f42cb2d074b33e4537bf672e83e3a"},
+    {file = "ruff-0.0.226-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:5c8cb58c721a35cbd05342943eed14399eae2184c425d39220e4eff2e741aecc"},
+    {file = "ruff-0.0.226-py3-none-win32.whl", hash = "sha256:cecc2c291660e5064704e51792c7ef084afcfbb124dc473936b5c233cf21aad3"},
+    {file = "ruff-0.0.226-py3-none-win_amd64.whl", hash = "sha256:bd9182fff882e14687eab0997b55b5edbf692a4e17a88902a1404058b142804a"},
+    {file = "ruff-0.0.226.tar.gz", hash = "sha256:988334f0ff4a80ef91faf46f447f10292b757f1eb94f5f9cf5d1eef400142c33"},
+]
 
 [[package]]
 name = "s3transfer"
@@ -1144,4 +1192,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "5c939a168b263adba0d528ac33cb9153e8e76c3d734ec713550b279846f47c59"
+content-hash = "2fd9bd4a989b064288bd379d4f74ef7a0fd489301fb61dbeb520c242219e07c1"
