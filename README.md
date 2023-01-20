@@ -24,7 +24,7 @@ Start Localstack with docker-compose
 ```
 Stop Localstack with docker-compose
 ```bash
-  (cd aws-localstack && docker-compose down)
+  (cd aws-localstack && docker-compose down --volumes)
 ```
 
 
