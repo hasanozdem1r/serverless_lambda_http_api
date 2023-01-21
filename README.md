@@ -65,7 +65,7 @@ Activate venv and install dependencies (you are in project directory)
   poetry install
 ```
 
-# Data Operations on PostgresSQL
+## Data Operations on PostgresSQL
 
 PostgreSQL Shell Access
 ```bash
