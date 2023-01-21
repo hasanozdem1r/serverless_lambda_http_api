@@ -78,8 +78,17 @@ docker exec -it <container_id> psql -U pythonTest pythonTest /bin/bash
 
 ## Deployment
 
+
+If you include a pyproject.toml and have poetry installed instead of a requirements.txt this will run automatically following command to generate **requirements.txt**
 ```
-$ serverless deploy
+poetry export --without-hashes -f requirements.txt -o requirements.txt --with-credentials
+```
+
+
+
+Deploying to localstack
+```
+$ serverless deploy --stage dev
 ```
 
 After deploying, you should see output similar to:
