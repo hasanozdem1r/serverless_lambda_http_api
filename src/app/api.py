@@ -1,5 +1,4 @@
 import json
-from typing import Any, Dict
 
 from app.database import get_connection_pool
 from app.encoder import serialize_query
