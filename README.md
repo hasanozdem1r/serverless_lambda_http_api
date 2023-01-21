@@ -48,12 +48,9 @@ Install serverless
   nvm use 19.4.0
   npm install serverless
 ```
-Install serverless plugins
+Install required serverless plugins
 ```bash
-  npm install serverless
-  serverless plugin install -n serverless-localstack
-  serverless plugin install -n serverless-python-requirements
-  serverless plugin install -n serverless-iam-roles-per-function
+  . prepare_environment.sh
 ```
 
 Install Python 3.9.7 and set 3.9.7 default version
