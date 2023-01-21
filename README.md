@@ -50,7 +50,7 @@ Install serverless
 ```
 Install required serverless plugins
 ```bash
-  . prepare_environment.sh
+  . initial_scripts/prepare_environment.sh
 ```
 
 Install Python 3.9.7 and set 3.9.7 default version

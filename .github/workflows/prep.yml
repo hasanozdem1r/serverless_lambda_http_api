@@ -45,4 +45,4 @@ jobs:
       - id: setup_serverless_dependencies
         name: Install Serverless Dependencies
         run: |
-          . prepare_environment.sh
+          . initial_scripts/prepare_action_environment.sh
