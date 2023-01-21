@@ -11,4 +11,3 @@ fi
 serverless plugin install -n serverless-localstack; # https://www.serverless.com/plugins/serverless-localstack
 serverless plugin install -n serverless-python-requirements; # https://www.serverless.com/plugins/serverless-python-requirements
 serverless plugin install -n serverless-iam-roles-per-function; # https://www.serverless.com/plugins/serverless-iam-roles-per-function
-serverless plugin install -n serverless-dotenv-plugin; # https://www.serverless.com/plugins/serverless-dotenv-plugin

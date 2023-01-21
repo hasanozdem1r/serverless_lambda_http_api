@@ -8,10 +8,7 @@ provider:
 
 functions: ${file(resources/endpoints.yml)}
 
-plugins:
-  - serverless-python-requirements # A Serverless Framework plugin to automatically bundle dependencies from requirements.txt
-  - serverless-localstack # Serverless Plugin to support running against Localstack.
-  - serverless-iam-roles-per-function # define IAM roles per function via the use of iamRoleStatements
+useDotenv: true
 
 custom:
   stage: ${opt:stage, "dev"}
@@ -22,10 +19,17 @@ custom:
     host: http://localhost
     edgePort: 4566
     autostart: true
+
     docker:
       sudo: false
-  DB_NAME: 'pythonTest'
-  DB_USER: 'pythonTest'
-  DB_PASSWORD: 'pythonTest'
-  DB_HOST: 'postgresql'
-  DB_PORT: 5432
+  DB_NAME: ${env:DB_NAME}
+  DB_USER: ${env:DB_USER}
+  DB_PASSWORD: ${env:DB_PASSWORD}
+  DB_HOST: ${env:DB_HOST}
+  DB_PORT: ${env:DB_PORT}
+
+
+plugins:
+  - serverless-python-requirements
+  - serverless-localstack
+  - serverless-iam-roles-per-function
