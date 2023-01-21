@@ -33,4 +33,3 @@ services:
     volumes:
       # copy the sql script to create tables
       - ./postgres_init/init_db.sql:/docker-entrypoint-initdb.d/postgres_init/init_db.sql
-
