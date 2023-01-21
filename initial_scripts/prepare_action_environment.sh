@@ -5,7 +5,7 @@
 if ! command -v serverless --help &> /dev/null
 then
     echo "'serverless' could not be found";
-    npm install serverless;
+    npm i -g serverless;
 fi
 # install required packages
 serverless plugin install -n serverless-localstack; # https://www.serverless.com/plugins/serverless-localstack
