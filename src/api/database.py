@@ -1,6 +1,6 @@
 from psycopg2.pool import ThreadedConnectionPool
 
-from app.constants import DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER
+from api.constants import DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER
 
 
 def get_connection_pool(db_host: str = DB_HOST,

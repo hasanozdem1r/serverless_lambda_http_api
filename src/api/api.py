@@ -1,8 +1,8 @@
 import json
 
-from app.database import get_connection_pool
-from app.encoder import serialize_query
-from app.responses import JsonResponse
+from src.api.database import get_connection_pool
+from src.api.encoder import serialize_query
+from src.api.responses import JsonResponse
 
 
 def read_report(event, context):

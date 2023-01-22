@@ -1,18 +1,27 @@
-service: sandbox-test2
+
+# Service name
+service: python_postgres
+
+frameworkVersion: '3'
+
+# Configuration validation: 'error' (fatal error), 'warn' (logged to the output) or 'off' (default: warn)
+configValidationMode: error
+
 provider:
   name: aws
   runtime: python3.9
-  stage: ${self:custom.stage}
+  stage: ${opt:stage, 'dev'}
   region: eu-west-1 # Ireland
   timeout: 15 # The default is 6 seconds.
 
-functions: ${file(resources/endpoints.yml)}
+functions: ${file(../resources/endpoints.yml)}
 
 useDotenv: true
 
 custom:
-  stage: ${opt:stage, "dev"}
-  pythonRequirements: ${file(resources/python_dependencies.yml)}
+  region: ${self:provider.region}
+  stage: ${opt:stage, self:provider.stage}
+  pythonRequirements: ${file(../resources/python_dependencies.yml)}
   localstack:
     stages:
       - ${self:custom.stage}
@@ -28,8 +37,8 @@ custom:
   DB_HOST: ${env:DB_HOST}
   DB_PORT: ${env:DB_PORT}
 
-
 plugins:
   - serverless-python-requirements
   - serverless-localstack
   - serverless-iam-roles-per-function
+  - serverless-offline
