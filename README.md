@@ -72,8 +72,6 @@ PostgreSQL Shell Access
 docker exec -it <container_id> psql -U pythonTest pythonTest /bin/bash
 ```
 
-
-
 ## Usage
 
 ## Deployment
