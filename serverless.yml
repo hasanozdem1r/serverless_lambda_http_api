@@ -1,6 +1,8 @@
+org: hasanozdem1r
+app: polcode
 
 # Service name
-service: python_postgres
+service: PythonPostgres
 
 frameworkVersion: '3'
 
@@ -14,14 +16,14 @@ provider:
   region: eu-west-1 # Ireland
   timeout: 15 # The default is 6 seconds.
 
-functions: ${file(../resources/endpoints.yml)}
+functions: ${file(handlers/endpoints.yml)}
 
 useDotenv: true
 
 custom:
   region: ${self:provider.region}
   stage: ${opt:stage, self:provider.stage}
-  pythonRequirements: ${file(../resources/python_dependencies.yml)}
+  pythonRequirements: ${file(resources/python_dependencies.yml)}
   localstack:
     stages:
       - ${self:custom.stage}

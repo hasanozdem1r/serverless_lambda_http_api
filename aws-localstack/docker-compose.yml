@@ -20,7 +20,7 @@ services:
 
   database:
     container_name: postgresql
-    image: postgres:14.1-alpine
+    image: postgres::latest
     ports:
       - "5432:5432"
     networks:
