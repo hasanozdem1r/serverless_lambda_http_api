@@ -1,4 +1,4 @@
-# Serverless Framework Python HTTP API on AWS
+# Serverless Framework Python HTTP API on AWS 🚀
 
 ## Prerequisites
 
@@ -71,9 +71,15 @@ PostgreSQL Shell Access
 ```bash
 docker exec -it <container_id> psql -U pythonTest pythonTest /bin/bash
 ```
+When you run this command you will be able to run postgres command in docker container.
 
 ## Usage
 
+### Serverless Offline
+Please run following command to run serverless offline in your local
+```
+serverless offline
+```
 ## Deployment
 
 
