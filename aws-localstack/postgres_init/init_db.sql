@@ -1,21 +1,22 @@
 /*Create schema and grant to public*/
-CREATE SCHEMA serverless_schema;GRANT ALL ON SCHEMA serverless_schema TO PUBLIC;
+CREATE SCHEMA IF NOT EXISTS serverless_schema;
+GRANT ALL ON SCHEMA serverless_schema TO PUBLIC;
 /*List all schemas*/
 SELECT
     *
 FROM
-    information_schema.schemata;CREATE SCHEMA serverless_schema;CREATE TABLE serverless_schema.audit (
-        id serial PRIMARY KEY,
-        event_user NAME NOT NULL DEFAULT "session_user" (),
-        event_time TIMESTAMP WITH TIME zone NOT NULL DEFAULT now(),
-        event_type TEXT NOT NULL CHECK (
-            event_type = ANY (ARRAY ['INSERT', 'UPDATE', 'DELETE'])
-        ),
-        table_name NAME NOT NULL,
-        object_id BIGINT NOT NULL,
+    information_schema.schemata;
+CREATE TABLE serverless_schema.audit (
+        id serial primary key,
+        event_user name NOT NULL DEFAULT "session_user"(),
+        event_time timestamp with time zone NOT NULL DEFAULT now(),
+        event_type text NOT NULL CHECK (event_type = ANY (ARRAY['INSERT', 'UPDATE', 'DELETE'])),
+        table_name name NOT NULL,
+        object_id bigint NOT NULL,
         record_new json,
         record_old json
-    );GRANT ALL ON TABLE serverless_schema.audit TO PUBLIC;
+);
+GRANT ALL ON TABLE serverless_schema.audit TO PUBLIC;
 SELECT
     *
 FROM
