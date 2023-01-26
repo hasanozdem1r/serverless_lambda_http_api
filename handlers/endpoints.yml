@@ -18,3 +18,11 @@
       DB_USER: ${self:custom.DB_USER}
       DB_PASSWORD: ${self:custom.DB_PASSWORD}
       DB_HOST: ${self:custom.DB_HOST}
+
+- hello:
+    handler: src/api/api.hello
+    events:
+      - http:
+          path: /hello
+          method: get
+          cors: true

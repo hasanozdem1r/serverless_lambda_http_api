@@ -47,3 +47,4 @@ plugins:
   - serverless-localstack
   - serverless-iam-roles-per-function
   - serverless-offline
+  - serverless-dotenv-plugin
