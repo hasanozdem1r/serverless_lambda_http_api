@@ -10,7 +10,7 @@ def read_report(event, context):
     connection_pool = get_connection_pool()
     with connection_pool.getconn() as conn:
         with conn.cursor() as curs:
-            curs.execute("SELECT * FROM test_hst.audit WHERE id = %s",
+            curs.execute("SELECT * FROM serverless_schema.audit WHERE id = %s",
                          (report_id,))
             result = curs.fetchone()
             # Serializing JSON objects which is not serializable by default json code
@@ -29,14 +29,3 @@ def read_report(event, context):
         "Headers": json_response.headers,
         "body": json_response.body
     }
-
-
-def hello(event, context):
-    body = {
-        "message": "Go Serverless v3.0! Your function executed successfully!",
-        "input": event,
-    }
-
-    response = {"statusCode": 200, "body": json.dumps(body)}
-
-    return response

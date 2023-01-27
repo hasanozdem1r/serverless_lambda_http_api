@@ -78,7 +78,13 @@ When you run this command you will be able to run postgres command in docker con
 ### Serverless Offline
 Please run following command to run serverless offline in your local
 ```
-serverless offline
+serverless offline --stage local
+```
+
+### Serverless Localstack
+Please run following command to run serverless offline in your local
+```
+serverless --stage dev
 ```
 ## Deployment
 
