@@ -1,4 +1,4 @@
-service: sandbox-test2
+service: lambda_api
 provider:
   name: aws
   runtime: python3.9
@@ -6,7 +6,7 @@ provider:
   region: eu-west-1 # Ireland
   timeout: 15 # The default is 6 seconds.
 
-functions: ${file(resources/endpoints.yml)}
+functions: ${file(handlers/endpoints.yml)}
 
 useDotenv: true
 
