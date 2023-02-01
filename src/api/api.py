@@ -3,6 +3,8 @@ import json
 from src.api.database import get_connection_pool
 from src.api.encoder import serialize_query
 from src.api.responses import JsonResponse
+from typing import Dict
+from datetime import date
 
 
 def read_report(event, context):
@@ -24,6 +26,28 @@ def read_report(event, context):
                                  },
                                  body=json.dumps(serialized_result))
 
+    return {
+        "statusCode": json_response.status_code,
+        "Headers": json_response.headers,
+        "body": json_response.body
+    }
+
+
+def get_date(event: Dict, context):
+    """
+
+    :param event: The event dict that contains the parameters sent when the function is invoked.
+    :type event: dict
+    :param context: The context in which the function is called
+    :type context: _type_
+    """
+
+    today = date.today()
+    # dd/mm/YY
+    today = today.strftime("%d/%m/%Y")
+    json_response = JsonResponse(status_code=200,
+                                 body=json.dumps(
+                                     {"message": f"Today Date:{today}"}))
     return {
         "statusCode": json_response.status_code,
         "Headers": json_response.headers,

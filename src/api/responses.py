@@ -6,5 +6,5 @@ class JsonResponse(BaseModel):
     Rest Api Response is structured
     """
     status_code: int
-    headers: dict
-    body: dict
+    headers: dict = {"Content-Type": "application/json"}
+    body: str

@@ -20,9 +20,9 @@
       DB_HOST: ${self:custom.DB_HOST}
 
 - hello:
-    handler: src/api/api.hello
+    handler: src/api/api.get_date
     events:
       - http:
-          path: /hello
+          path: /today
           method: get
           cors: true
