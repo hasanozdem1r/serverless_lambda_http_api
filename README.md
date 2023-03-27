@@ -76,13 +76,13 @@ When you run this command you will be able to run postgres command in docker con
 ## Usage
 
 ### Serverless Offline
-Please run following command to run serverless offline in your local
+Please run following command to run serverless offline on local machine
 ```
 serverless offline --stage local
 ```
 
 ### Serverless Localstack
-Please run following command to run serverless offline in your local
+Please run following command to run serverless on localstack
 ```
 serverless --stage dev
 ```
@@ -93,12 +93,9 @@ If you include a pyproject.toml and have poetry installed instead of a requireme
 ```
 poetry export --without-hashes -f requirements.txt -o requirements.txt --with-credentials
 ```
-
-
-
 Deploying to localstack
 ```
-$ serverless deploy --stage dev
+serverless deploy --stage dev
 ```
 
 After deploying, you should see output similar to:
