@@ -1235,6 +1235,23 @@ files = [
 ]
 
 [[package]]
+name = "terraform-local"
+version = "0.6"
+description = "Thin wrapper script to run Terraform against LocalStack"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "terraform-local-0.6.tar.gz", hash = "sha256:d456980172eec6eded4249bf04871c0aa97f6e8495e60ecbc254fffe1e304f89"},
+]
+
+[package.dependencies]
+localstack-client = "*"
+
+[package.extras]
+test = ["flake8", "localstack", "pytest"]
+
+[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -1309,4 +1326,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "317027ae37dfe393c51a5865c6417297535f1fc44f399b5ebe43b555cb8973b2"
+content-hash = "b40b948168904366d416793cddf2bcfe37ed99d8f2dd4115c061512b56228792"

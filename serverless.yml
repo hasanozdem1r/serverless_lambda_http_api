@@ -1,3 +1,5 @@
+org: hasanozdem1r
+app: http-api-example
 service: lambda_api
 provider:
   name: aws
