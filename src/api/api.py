@@ -31,25 +31,3 @@ def read_report(event, context):
         "Headers": json_response.headers,
         "body": json_response.body
     }
-
-
-def get_date(event: Dict, context):
-    """
-
-    :param event: The event dict that contains the parameters sent when the function is invoked.
-    :type event: dict
-    :param context: The context in which the function is called
-    :type context: _type_
-    """
-
-    today = date.today()
-    # dd/mm/YY
-    today = today.strftime("%d/%m/%Y")
-    json_response = JsonResponse(status_code=200,
-                                 body=json.dumps(
-                                     {"message": f"Today Date:{today}"}))
-    return {
-        "statusCode": json_response.status_code,
-        "Headers": json_response.headers,
-        "body": json_response.body
-    }
